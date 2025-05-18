@@ -20,13 +20,13 @@
             console.log('Disconnected from server');
         });
         
-
-        socket.emit('message', {
-            initial: 'Hello from client!'
-        });
-
         socket.on('message', function(payload) {
             console.log('Message from server:', payload);
+        });
+
+        socket.on('active-options', function(options) {
+            console.clear();
+            console.table(options);
         });
 
         
